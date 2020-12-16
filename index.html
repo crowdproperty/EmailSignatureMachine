@@ -1,0 +1,611 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" id="viewport" content="width=device-width,user-scalable=no">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+	<style>
+		#js-copy {
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease;
+			-o-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+		}
+	</style>
+	<!--Author: Keedle-->
+	<!--Disclaimer: You better not use that signature. I warned you have a lovely day 🥚 🤖-->
+	<title>Email Signature</title>
+</head>
+
+<body>
+	<main>
+
+		<section class="hero is-medium is-primary is-bold is-fullheight">
+			<div class="hero-head">
+				<nav class="navbar">
+					<div class="container">
+						<div class="navbar-brand">
+							<a class="navbar-item">
+								<img src="https://www.crowdproperty.com/assets/images/icons/white/logo_white_only.png"
+									alt="CP brand is cool">
+							</a>
+						</div>
+						<div class="navbar-menu">
+							<div class="navbar-end">
+								<span class="navbar-item">
+									<a class="button is-primary is-inverted"
+										href="https://www.crowdproperty.com?you_are_bad_bad_man">
+
+										<span>Get out 👉</span>
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns is-centered is-multiline">
+						<div class="column is-4">
+							<div class="card">
+								<header class="card-header">
+									<p class="card-header-title">Email Signature</p>
+								</header>
+								<!--begin column-action-->
+
+								<div class="card-content">
+									<div class="field">
+										<label class="label" for="full-name">Name</label>
+										<div class="control">
+											<input id="full-name" name="full-name" class="input" type="text"
+												placeholder="Full Name">
+										</div>
+									</div>
+
+									<div class="field">
+										<label for="title" class="label">Title</label>
+										<div class="control">
+											<input class="input" id="title" type="text"
+												placeholder="What you actually do ?">
+										</div>
+									</div>
+									<div class="field">
+
+										<label class="label">Who are you?</label>
+
+										<div class="field-body">
+											<div class="field is-narrow">
+												<div class="control">
+													<label class="radio">
+														<input type="radio" value="brwr" name="member">
+														Borrowers Team
+													</label>
+													<label class="radio">
+														<input type="radio" value="human" name="member">
+														Others
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- <div class="field">
+										<label for="phone" class="label">Phone Number</label>
+										<div class="control">
+											<input name="phone" id="phone" class="input" type="tel" placeholder="">
+										</div>
+									</div> -->
+									<div class="field is-grouped">
+										<div class="control">
+											<button name="get_sig" class="button is-link"
+												onclick="generateSig();">Create</button>
+										</div>
+										<div class="control">
+											<a class="button is-link is-danger"
+												href="https://giphy.com/gifs/BiVzLRMgj81va/fullscreen">Abort</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card mt-2">
+
+								<div class="card-content">
+									<div class="media">
+										<div class="media-left">
+											<figure class="image is-48x48"><img
+													src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0003/0859/brand.gif?itok=-esgNVNb"
+													alt="oh boi"></figure>
+										</div>
+										<div class="media-content">
+											<p class="title is-5 has-text-dark">Email signatures for dummies</p>
+											<p class="subtitle is-6 has-text-dark">2020 Edit.</p>
+										</div>
+									</div>
+									<hr>
+									<div class="content">
+										<ol>
+											<li>Simply complete the form with your details 👆</li>
+											<li>Click <b>Create</b> button ✅</li>
+											<li>Click <b>Copy</b> button below signature 👉</li>
+											<li>Paste in your email client 📭</li>
+											<li>🤘</li>
+										</ol>
+										<hr>
+										<h5 class="subtitle is-5 has-text-grey">How to add signature to my email client
+											?
+										</h5>
+
+
+									</div>
+								</div>
+								<footer class="card-footer">
+
+									<a class="card-footer-item"
+										href="https://support.microsoft.com/en-us/office/create-and-add-a-signature-to-messages-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2">Outlook</a>
+									</p>
+
+									<a class="card-footer-item"
+										href="https://support.google.com/mail/answer/8395?co=GENIE.Platform%3DDesktop&hl=en">Gmail</a>
+
+
+									<a class="card-footer-item"
+										href="https://support.microsoft.com/en-us/office/create-a-signature-in-mail-for-windows-10-c07a46ad-8258-45b1-926a-4429a0aa1f9a">Win
+										10 Mail</a>
+
+								</footer>
+							</div>
+						</div>
+						<div class="column  is-narrow ">
+							<div class="card">
+								<div class="card-content">
+									<div id="hollySignature" name="hollySignature">
+
+
+										<table id="code" style="
+	  font-family: Lato, Arial, Helvetica, sans-serif;
+	  line-height: 0px;
+	  font-size: 1px;
+	  padding: 0px;
+	  border-spacing: 0px;
+	  margin: 0px;
+	  border-collapse: collapse;
+	  width: 550px;
+	" cellspacing="0" cellpadding="0" border="0">
+											<tbody>
+												<tr>
+													<td>
+														<table style="
+			  font-family: Lato, Arial, Helvetica, sans-serif;
+			  line-height: 0px;
+			  font-size: 1px;
+			  padding: 0px;
+			  border-spacing: 0px;
+			  margin: 0px;
+			  border-collapse: collapse;
+			" cellspacing="0" cellpadding="0" border="0">
+															<tbody>
+																<tr>
+																	<td>
+																		<table style="
+					  font-family: Lato, Arial, Helvetica, sans-serif;
+					  line-height: 0px;
+					  font-size: 1px;
+					  padding: 0px;
+					  border-spacing: 0px;
+					  margin: 0px;
+					  border-collapse: collapse;
+					" cellspacing="0" cellpadding="0" border="0">
+																			<tbody>
+																				<tr>
+																					<td width="90" style="
+							border-collapse: collapse;
+							line-height: 0px;
+							padding-left: 10px;
+						  ">
+																						<a href="https://crowdproperty.com"
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://jl148.files.keap.app/jl148/95e36f5f-1edd-412b-9ba2-d6de356c7936"
+																								border="0"
+																								style="height: 90px"
+																								width="74" />
+																						</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</td>
+
+																	<td style="
+					border-collapse: collapse;
+					padding-right: 14px;
+					width: 0px;
+				  "></td>
+																	<td style="vertical-align: bottom">
+																		<table style="
+					  font-family: Lato, Arial, Helvetica, sans-serif;
+					  line-height: 0px;
+					  font-size: 1px;
+					  padding: 0px;
+					  border-spacing: 0px;
+					  margin: 0px;
+					  border-collapse: collapse;
+					" cellspacing="0" cellpadding="0" border="0">
+																			<tbody>
+																				<tr>
+																					<td style="
+							border-collapse: collapse;
+							font-family: Lato, Helvetica, sans-serif;
+							font-size: 12pt;
+							font-style: normal;
+							line-height: 18px;
+							font-weight: normal;
+						  ">
+																						<span class="employee-name"
+																							style="
+							  font-family: Lato, Trebuchet MS, Helvetica,
+								sans-serif;
+							  font-size: 12pt;
+							  font-style: normal;
+							  line-height: 18px;
+							  font-weight: normal;
+							  color: #000000;
+							  display: inline;
+							">
+																							Jolly Dolly
+																						</span>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td style="
+							border-collapse: collapse;
+							font-family: Lato, Trebuchet MS, Helvetica,
+							  sans-serif;
+							font-size: 12pt;
+							font-style: normal;
+							line-height: 18px;
+							font-weight: normal;
+						  ">
+																						<span class="employee-title"
+																							style="
+							  font-family: Lato, Trebuchet MS, Helvetica,
+								sans-serif;
+							  font-size: 12pt;
+							  font-style: normal;
+							  line-height: 18px;
+							  font-weight: normal;
+							  color: #9d9d9d;
+							  display: inline;
+							">
+																							CTO
+																						</span>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td style="
+							border-collapse: collapse;
+							padding-bottom: 0px;
+							height: 8px;
+						  "></td>
+																				</tr>
+																				<tr>
+																					<td style="
+							border-collapse: collapse;
+							font-family: Lato, Trebuchet MS, Helvetica,
+							  sans-serif;
+							font-size: 12pt;
+							font-style: normal;
+							line-height: 18px;
+							font-weight: normal;
+						  ">
+																						<span class="employee-number"
+																							style="
+							  font-family: Lato, Trebuchet MS, Helvetica,
+								sans-serif;
+							  font-size: 12pt;
+							  font-style: normal;
+							  line-height: 18px;
+							  font-weight: normal;
+							  color: #56b793;
+							  display: inline;
+							">
+																							0121 809 2037
+																						</span>
+																					</td>
+																				</tr>
+
+																				<tr>
+																					<td style="
+							border-collapse: collapse;
+							font-family: Lato, Trebuchet MS, Helvetica,
+							  sans-serif;
+							font-size: 12pt;
+							font-style: normal;
+							line-height: 18px;
+							font-weight: normal;
+						  ">
+																						<a href="https://crowdproperty.com"
+																							style="
+							  font-family: Lato, Trebuchet MS, Helvetica,
+								sans-serif;
+							  font-size: 12pt;
+							  font-style: normal;
+							  line-height: 18px;
+							  font-weight: normal;
+							  color: #56b793;
+							  display: inline;
+							  text-decoration: none;
+							">
+																							www.crowdproperty.com
+																						</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+											<tbody>
+												<tr>
+													<td style="
+			border-collapse: collapse;
+			line-height: 0px;
+			padding: 20px 0px 10px 10px;
+		  ">
+														<table style="
+			  font-family: Lato, Arial, Helvetica, sans-serif;
+			  line-height: 0px;
+			  font-size: 1px;
+			  padding: 0px;
+			  border-spacing: 0px;
+			  margin: 0px;
+			  border-collapse: collapse;
+			" cellspacing="0" cellpadding="0" border="0">
+															<tbody>
+																<tr>
+																	<td>
+																		<table style="
+					  font-family: Lato, Arial, Helvetica, sans-serif;
+					  line-height: 0px;
+					  font-size: 1px;
+					  padding: 0px;
+					  border-spacing: 0px;
+					  margin: 0px;
+					  border-collapse: collapse;
+					" cellspacing="0" cellpadding="0" border="0">
+																			<tbody>
+																				<tr>
+																					<td>
+																						<a href="https://www.linkedin.com/company/5263244 "
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://www.crowdproperty.com/assets/images/signature/linkedin.png"
+																								width="30px"
+																								height="30px"
+																								border="0" />
+																						</a>
+																					</td>
+
+																					<td style="
+							border-collapse: collapse;
+							padding-right: 0px;
+							width: 8px;
+						  "></td>
+																					<td width="33">
+																						<a href="https://www.facebook.com/CrowdProperty"
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://www.crowdproperty.com/assets/images/signature/facebook.png"
+																								width="30px"
+																								height="30px"
+																								border="0" />
+																						</a>
+																					</td>
+
+																					<td style="
+							border-collapse: collapse;
+							padding-right: 0px;
+							width: 8px;
+						  "></td>
+																					<td width="33">
+																						<a href="https://www.instagram.com/crowdproperty/"
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://www.crowdproperty.com/assets/images/signature/instagram.png"
+																								width="30px"
+																								height="30px"
+																								border="0" />
+																						</a>
+																					</td>
+
+																					<td style="
+							border-collapse: collapse;
+							padding-right: 0px;
+							width: 8px;
+						  "></td>
+																					<td width="33">
+																						<a href="https://twitter.com/CrowdPropertyUK"
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://www.crowdproperty.com/assets/images/signature/twitter.png"
+																								width="30px"
+																								height="30px"
+																								border="0" />
+																						</a>
+																					</td>
+
+																					<td style="
+							border-collapse: collapse;
+							padding-right: 0px;
+							width: 8px;
+						  "></td>
+																					<td width="33">
+																						<a href="https://www.youtube.com/channel/UCOkjBC7OHziwyJJKkWOmJ7Q"
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://www.crowdproperty.com/assets/images/signature/youtube.png"
+																								width="30px"
+																								height="30px"
+																								border="0" />
+																						</a>
+																					</td>
+
+																					<td style="
+							border-collapse: collapse;
+							padding-right: 0px;
+							width: 8px;
+						  "></td>
+																					<td width="33">
+																						<a href="https://blog.crowdproperty.com"
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://www.crowdproperty.com/assets/images/signature/blog.png"
+																								width="87px"
+																								height="31px"
+																								border="0" />
+																						</a>
+																					</td>
+
+																					<td style="
+							border-collapse: collapse;
+							padding-right: 0px;
+							width: 8px;
+						  "></td>
+																					<td>
+																						<a href="https://uk.trustpilot.com/review/crowdproperty.com"
+																							target="_blank"
+																							style="color: #56b793; text-decoration: none">
+																							<img nosend="1"
+																								src="https://www.crowdproperty.com/assets/images/signature/trstplt.png"
+																								width="253px"
+																								border="0" />
+																						</a>
+																					</td>
+																					<td></td>
+																					<td></td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+											<tbody>
+												<tr>
+													<td style="
+			border-collapse: collapse;
+			line-height: 0px;
+			padding: 16px 0px 20px 10px;
+		  ">
+														<a href="https://www.crowdproperty.com/IFISA" target="_blank"
+															style="color: #56b793; text-decoration: none">
+															<img class="oi" nosend="1"
+																src="https://www.crowdproperty.com/assets/images/signature/bnr.png"
+																style="padding-right: 8px" width="551px" border="0" />
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td style="
+			border-collapse: collapse;
+			line-height: 0px;
+			padding: 16px 0px 20px 10px;
+		  " align="center">
+														<a href="https://crowdproperty.com" target="_blank"
+															style="color: #56b793; text-decoration: none">
+															<img nosend="1"
+																src="https://www.crowdproperty.com/assets/images/signature/awwards.png"
+																style="padding-right: 8px" width="530px" border="0" />
+														</a>
+													</td>
+												</tr>
+											</tbody>
+											<tbody>
+												<tr>
+													<td style="
+			border-collapse: collapse;
+			font-family: Lato, Trebuchet MS, Helvetica, sans-serif;
+			font-size: 9px;
+			font-style: normal;
+			line-height: 12pt;
+			font-weight: ligt;
+			text-align: center;
+			color: #9d9d9d;
+			padding: 8px 0px 20px 10px;
+		  ">
+														<p>
+															This message is intended for the above named only and
+															may be
+															privileged or confidential. If this message has come to
+															you
+															in
+															error, you may not copy, distribute or take action based
+															on
+															it;
+															please notify us immediately by replying to the sender.
+															Any
+															views expressed in this email are those of the original
+															sender,
+															except where the sender specifically states them to be
+															the
+															views
+															of CrowdProperty Ltd. CrowdProperty Limited. Registered
+															Office:
+															54 Hagley Road, Birmingham B16 8PE. Registered in
+															England
+															and
+															Wales number 8764786. Consumer Credit Licence 664202/1.
+															CrowdProperty Ltd is authorised and regulated by the
+															Financial
+															Conduct Authority under registration number 723959.
+														</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+
+
+									</div>
+
+								</div>
+								<footer class="card-footer">
+									<a id="js-copy" class=" card-footer-item slc" data-clipboard-target="#code">Copy</a>
+									<p class="card-footer-item">
+										<span>
+											Share on <a href="#">Facebook</a>
+										</span>
+									</p>
+								</footer>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</main>
+</body>
+<script src="js/clipboard.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+</html>
