@@ -31,6 +31,10 @@ if (phone == '' && member == "human"){
   //brwr no number
   else if (phone == '' && member != "human" ){
     $searchBlock.find(".employee-number").text("020 3012 0166");
+    $(".url").attr(
+      "href",
+      "https://www.crowdproperty.com/borrowers"
+    );
     $(".oi").attr(
       "src",
       "https://www.crowdproperty.com/assets/images/signature/bnr_brwr.png"
@@ -40,6 +44,11 @@ if (phone == '' && member == "human"){
   // brwr with  number
   else if (phone != '' && member != "human"){ 
     $searchBlock.find(".employee-number").text(phone);
+    $(".url").attr(
+      "href",
+      "https://www.crowdproperty.com/borrowers"
+    );
+    
     $(".oi").attr(
       "src",
       "https://www.crowdproperty.com/assets/images/signature/bnr_brwr.png"
