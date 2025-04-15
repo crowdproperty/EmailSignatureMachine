@@ -87,7 +87,8 @@ h2 {
       border-radius: 6px;
     }
     .preview, .code-output {
-      border: 1px solid #ddd;
+      border: 1px solid white;
+      background-color:white;
       padding: 20px;
       margin-top: 2rem;
       border-radius: 8px;
