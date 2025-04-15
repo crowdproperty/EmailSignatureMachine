@@ -58,13 +58,13 @@ function generateSignature() {
     linkedin: document.getElementById('linkedin').value,
   };
 
-  const html = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial; font-size: small; max-width: 600px; width: 100%;">
+  const html = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial; background-color:white; font-size: small; max-width: 700px; width: 100%;">
     <tbody>
       <tr>
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial; font-size: small; width: 100%;">
             <tr>
-              <td style="vertical-align: middle;">
+              <td style="vertical-align: middle; width:400px;">
                 <span style="font-size: 16px; font-weight: 600; color: rgb(5, 18, 71);">${data.name}</span><br />
                 <span style="font-size: 12px; color: rgb(5, 18, 71);">${data.title}</span><br />
                 <span style="font-size: 12px; font-weight: 500; color: rgb(5, 18, 71);">${data.department} | ${data.company}</span>
@@ -73,7 +73,7 @@ function generateSignature() {
               <td width="1" style="border-left: 1px solid rgb(211, 211, 211);"></td>
               <td width="30"></td>
               <td style="vertical-align: middle;">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table cellpadding="0" cellspacing="0" border="0" style="width:400px;">
                   <tr>
                     <td width="30"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" width="13" alt="Phone" /></td>
                     <td><a href="tel:${data.phone}" style="color: rgb(5, 18, 71); text-decoration: none; font-size: 12px;">${data.phone}</a></td>
