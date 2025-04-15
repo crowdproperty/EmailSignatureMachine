@@ -119,7 +119,7 @@ h2 {
     }
 
 .subtext {
-    font-family:'GeneralSans-Variable';
+    font-family:GeneralSans-Variable, sans-serif;
     font-size:1.2rem;
     color:#081f4d;
     opacity:80%;
