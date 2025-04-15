@@ -52,6 +52,9 @@ body {
       margin: 2rem 2rem;      
     
     }
+.downloads {
+  display:flex-box;
+}
 
     h1 {
       font-weight: 100;
