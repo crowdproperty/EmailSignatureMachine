@@ -5,64 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Email Signature Generator</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  
 </head>
 <body>
   
   <div class="container">
-  <div class="sidebar">
-  <div class="links">
-      <img src="https://www.crowdproperty.com/app/themes/designreligion/assets/img/logo-white.svg" width="90%">
-   
-    <a href="/EmailSignatureMachine/index.html">Email Signature</a>
-    <hr>
-    <a href="/EmailSignatureMachine/socials.html">Social Assets</a>
-    <hr>
-      <a href="/EmailSignatureMachine/logo-files.html">Logo Files</a>
-    <hr>
-     </div>
-  </div>
-    
-  <div class="content">
-    <h1>Email Signature Generator</h1>
-
-    <div class="input-group"><label for="name">Full Name</label><input type="text" id="name" value="Mike O'Raw" /></div>
-    <div class="input-group"><label for="title">Job Title</label><input type="text" id="title" value="Lead Designer" /></div>
-    <div class="input-group"><label for="department">Department</label><input type="text" id="department" value="Marketing" /></div>
-    <div class="input-group"><label for="company">Company</label><input type="text" id="company" value="CrowdProperty" /></div>
-    <div class="input-group"><label for="phone">Phone Number</label><input type="text" id="phone" value="07429987483" /></div>
-    <div class="input-group"><label for="email">Email</label><input type="email" id="email" value="mike.oraw@crowdproperty.com" /></div>
-    <div class="input-group"><label for="website">Website</label><input type="text" id="website" value="https://CrowdProperty.com" /></div>
-    <div class="input-group"><label for="linkedin">LinkedIn URL</label><input type="text" id="linkedin" value="https://www.linkedin.com/in/mike-oraw/" /></div>
-
-    <button onclick="generateSignature()">Generate Signature</button>
-    <button onclick="copySignature()">Copy Signature</button>
-
-    <div class="preview" id="signaturePreview"></div>
-
-    <div class="code-output">
-      <label for="htmlOutput">HTML Code</label>
-      <textarea id="htmlOutput" readonly></textarea>
+    <div class="sidebar">
+      <div class="links">
+        <img src="https://www.crowdproperty.com/app/themes/designreligion/assets/img/logo-white.svg" width="90%">
+        <a href="/EmailSignatureMachine/index.html">Email Signature</a>
+        <hr>
+        <a href="/EmailSignatureMachine/socials.html">Social Assets</a>
+        <hr>
+        <a href="/EmailSignatureMachine/logo-files.html">Logo Files</a>
+        <hr>
+      </div>
     </div>
-  </div>
-<script>
-function generateSignature() {
-  const data = {
-    name: document.getElementById('name').value,
-    title: document.getElementById('title').value,
-    department: document.getElementById('department').value,
-    company: document.getElementById('company').value,
-    phone: document.getElementById('phone').value,
-    email: document.getElementById('email').value,
-    website: document.getElementById('website').value,
-    linkedin: document.getElementById('linkedin').value,
-  };
+    
+    <div class="content">
+      <h1>Email Signature Generator</h1>
 
-  const html = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial; background-color:white; font-size: small; max-width: 700px; width: 100%;">
+      <div class="input-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your Name" />
+      </div>
+
+      <div class="input-group">
+        <label for="title">Job Title</label>
+        <input type="text" id="title" placeholder="Your Job Title" />
+      </div>
+
+      <div class="input-group">
+        <label for="department">Department</label>
+        <input type="text" id="department" placeholder="Your Department" />
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" placeholder="Your Phone Number" />
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="your.email@crowdproperty.com" />
+      </div>
+
+      <div class="input-group">
+        <label for="linkedin">LinkedIn URL</label>
+        <input type="text" id="linkedin" placeholder="https://www.linkedin.com/in/yourprofile/" />
+      </div>
+
+      <button onclick="generateSignature()">Generate Signature</button>
+      <button onclick="copySignature()">Copy Signature</button>
+
+      <div class="preview" id="signaturePreview"></div>
+
+      <div class="code-output">
+        <label for="htmlOutput">HTML Code</label>
+        <textarea id="htmlOutput" readonly></textarea>
+      </div>
+    </div>
+
+    <script>
+      function generateSignature() {
+        const data = {
+          name: document.getElementById('name').value || "Your Name",
+          title: document.getElementById('title').value || "Your Job Title",
+          department: document.getElementById('department').value || "Your Department",
+          company: "CrowdProperty",
+          phone: document.getElementById('phone').value || "Your Phone Number",
+          email: document.getElementById('email').value || "your.email@crowdproperty.com",
+          website: "https://CrowdProperty.com",
+          linkedin: document.getElementById('linkedin').value.trim(),
+        };
+
+        // Only show LinkedIn icon if a URL is provided
+        const linkedinHTML = data.linkedin
+          ? `<a href="${data.linkedin}" style="background-color: rgb(255, 36, 128); border-radius: 50%; display: inline-block;">
+               <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/linkedin-icon-dark-2x.png" alt="LinkedIn" width="24" style="border-radius: inherit; display:block; border:0; outline:none; text-decoration:none;" />
+             </a>`
+          : ``;
+
+        const html = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; background-color:white; font-size: small; max-width: 700px; width: 100%;">
     <tbody>
       <tr>
         <td>
-          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial; font-size: small; width: 100%;">
+          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; font-size: small; width: 100%;">
             <tr>
               <td style="vertical-align: middle; width:400px;">
                 <span style="font-size: 16px; font-weight: 600; color: rgb(5, 18, 71);">${data.name}</span><br />
@@ -75,16 +102,30 @@ function generateSignature() {
               <td style="vertical-align: middle;">
                 <table cellpadding="0" cellspacing="0" border="0" style="width:400px;">
                   <tr>
-                    <td width="30"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" width="13" alt="Phone" /></td>
-                    <td><a href="tel:${data.phone}" style="color: rgb(5, 18, 71); text-decoration: none; font-size: 12px;">${data.phone}</a></td>
+                    <td width="30">
+                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" width="13" alt="Phone" style="display:block; border:0; outline:none; text-decoration:none;" />
+                    </td>
+                    <td>
+                      <a href="tel:${data.phone}" style="color: rgb(5, 18, 71); text-decoration: none; font-size: 12px;">${data.phone}</a>
+                    </td>
                   </tr>
                   <tr>
-                    <td width="30"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png" width="13" alt="Email" /></td>
-                    <td><a href="mailto:${data.email}" style="color: rgb(5, 18, 71); text-decoration: none; font-size: 12px;">${data.email}</a></td>
+                    <td width="30">
+                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png" width="13" alt="Email" style="display:block; border:0; outline:none; text-decoration:none;" />
+                    </td>
+                    <td>
+                      <a href="mailto:${data.email}" style="color: rgb(5, 18, 71); text-decoration: none; font-size: 12px;">${data.email}</a>
+                    </td>
                   </tr>
                   <tr>
-                    <td width="30"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png" width="13" alt="Website" /></td>
-                    <td><a href="${data.website}" style="color: rgb(5, 18, 71); text-decoration: none; font-size: 12px;">${data.website.replace(/^https?:\/\//, '')}</a></td>
+                    <td width="30">
+                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png" width="13" alt="Website" style="display:block; border:0; outline:none; text-decoration:none;" />
+                    </td>
+                    <td>
+                      <a href="${data.website}" style="color: rgb(5, 18, 71); text-decoration: none; font-size: 12px;">
+                        ${data.website.replace(/^https?:\/\//, '')}
+                      </a>
+                    </td>
                   </tr>
                 </table>
               </td>
@@ -92,67 +133,66 @@ function generateSignature() {
           </table>
         </td>
       </tr>
+
       <tr><td height="30"></td></tr>
       <tr><td style="border-bottom: 1px solid rgb(211, 211, 211);"></td></tr>
       <tr><td height="30"></td></tr>
+
       <tr>
         <td>
           <table width="100%">
             <tr>
-              <td><img src="https://www.crowdproperty.com/app/uploads/2025/04/white-background-logo.png" width="130" /></td>
+              <td>
+                <img src="https://www.crowdproperty.com/app/uploads/2025/04/white-background-logo.png" width="130" style="display:block; border:0; outline:none; text-decoration:none;" />
+              </td>
               <td style="text-align: right">
-                <a href="${data.linkedin}" style="background-color: rgb(255, 36, 128); border-radius: 50%; display: inline-block;">
-                  <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/linkedin-icon-dark-2x.png" alt="LinkedIn" width="24" style="border-radius: inherit;" />
-                </a>
+                ${linkedinHTML}
               </td>
             </tr>
           </table>
         </td>
       </tr>
+
       <tr>
-        <td style="font-size: 12px; padding-top: 1rem; text-align: center; color: #888888;">
-          <p style="margin: 0;">
-            This message is intended for the above named only and may be privileged or confidential. If this
-            message has come to you in error, you may not copy, distribute or take action based on it;
-            please notify us immediately by replying to the sender. Any views expressed in this email are
-            those of the original sender, except where the sender specifically states them to be the views
-            of CrowdProperty Ltd. CrowdProperty Limited. Registered Office: 54 Hagley Road, Birmingham B16
-            8PE. Registered in England.
-          </p>
+        <td style="font-size: 12px; padding-top: 1rem; text-align: center; color: #888888; line-height:1.4;">
+          This message is intended for the above named only and may be privileged or confidential. If this
+          message has come to you in error, you may not copy, distribute or take action based on it;
+          please notify us immediately by replying to the sender. Any views expressed in this email are
+          those of the original sender, except where the sender specifically states them to be the views
+          of CrowdProperty Ltd. CrowdProperty Limited. Registered Office: Suite 105, Quadrant Court, Calthorpe Road, Edgbaston, Birmingham, England, B15 1TH. Registered in England.
         </td>
       </tr>
     </tbody>
   </table>`;
 
-  document.getElementById('signaturePreview').innerHTML = html;
-  document.getElementById('htmlOutput').value = html;
-}
+        document.getElementById('signaturePreview').innerHTML = html;
+        document.getElementById('htmlOutput').value = html;
+      }
 
-function copySignature() {
-  const tempContainer = document.createElement('div');
-  tempContainer.innerHTML = document.getElementById("signaturePreview").innerHTML;
-  tempContainer.style.position = 'fixed';
-  tempContainer.style.left = '-9999px';
-  document.body.appendChild(tempContainer);
+      function copySignature() {
+        const tempContainer = document.createElement('div');
+        tempContainer.innerHTML = document.getElementById("signaturePreview").innerHTML;
+        tempContainer.style.position = 'fixed';
+        tempContainer.style.left = '-9999px';
+        document.body.appendChild(tempContainer);
 
-  const range = document.createRange();
-  range.selectNode(tempContainer);
-  const selection = window.getSelection();
-  selection.removeAllRanges();
-  selection.addRange(range);
+        const range = document.createRange();
+        range.selectNode(tempContainer);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
 
-  try {
-    document.execCommand("copy");
-    alert("Signature copied to clipboard!");
-  } catch (err) {
-    alert("Failed to copy signature");
-  }
+        try {
+          document.execCommand("copy");
+          alert("Signature copied to clipboard!");
+        } catch (err) {
+          alert("Failed to copy signature");
+        }
 
-  selection.removeAllRanges();
-  document.body.removeChild(tempContainer);
-}
-</script>
+        selection.removeAllRanges();
+        document.body.removeChild(tempContainer);
+      }
+    </script>
   </div>
-    
 </body>
 </html>
