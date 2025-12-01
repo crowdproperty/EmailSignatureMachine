@@ -36,7 +36,7 @@
 
       <div class="input-group">
         <label for="department">Department</label>
-        <input type="text" id="department" placeholder="Your Department" />
+        <input type="text" id="department" placeholder="(Optional)" />
       </div>
 
       <div class="input-group">
@@ -68,42 +68,24 @@
       <div class="instructions" style="margin-top: 2rem; max-width: 800px;">
         <h2>How to add your email signature to Outlook</h2>
 
-        <h3 style="margin-bottom: 0.25rem;">Outlook Desktop (Windows / Mac)</h3>
-        <ol style="padding-left: 1.25rem; margin-top: 0.25rem; margin-bottom: 1rem; font-size: 0.95rem;">
+        <h3>Outlook Desktop (Windows / Mac)</h3>
+        <ol>
           <li>Open <strong>Outlook</strong>.</li>
           <li>Click <strong>New Email</strong>.</li>
-          <li>In the new email window, click <strong>Signature</strong> → <strong>Signatures…</strong></li>
-          <li>Click <strong>New</strong>, name your signature (e.g. “CrowdProperty”), then click <strong>OK</strong>.</li>
-          <li>Return here and click <strong>Copy Signature</strong>.</li>
-          <li>Paste it into the signature editor (Ctrl+V / Cmd+V).</li>
-          <li>Set it as default for:
-            <ul style="margin: 0.25rem 0 0.25rem 1.25rem;">
-              <li><strong>New messages</strong></li>
-              <li><strong>Replies/forwards</strong> (optional)</li>
-            </ul>
-          </li>
-          <li>Click <strong>OK</strong> to save.</li>
+          <li>Go to <strong>Signature → Signatures…</strong></li>
+          <li>Create a new signature & paste the generated signature.</li>
+          <li>Set it as the default for new emails and replies (optional).</li>
         </ol>
 
-        <h3 style="margin-bottom: 0.25rem;">Outlook on the Web (New Outlook / Office 365)</h3>
-        <ol style="padding-left: 1.25rem; margin-top: 0.25rem; font-size: 0.95rem;">
+        <h3>Outlook on the Web (Office 365)</h3>
+        <ol>
           <li>Open <strong>Outlook on the web</strong>.</li>
-          <li>Click the <strong>Settings cog</strong> (top right).</li>
-          <li>Go to <strong>Accounts</strong> in the left sidebar.</li>
-          <li>Click <strong>Signatures</strong>.</li>
-          <li>Create a <strong>New signature</strong>.</li>
-          <li>Return here & click <strong>Copy Signature</strong>.</li>
-          <li>Paste the signature into Outlook’s signature box.</li>
-          <li>Set your defaults for:
-            <ul style="margin: 0.25rem 0 0.25rem 1.25rem;">
-              <li><strong>New messages</strong></li>
-              <li><strong>Replies/forwards</strong> (optional)</li>
-            </ul>
-          </li>
-          <li>Click <strong>Save</strong>.</li>
+          <li>Click the <strong>Settings cog</strong>.</li>
+          <li>Go to <strong>Accounts → Signatures</strong>.</li>
+          <li>Create a new signature & paste the generated signature.</li>
+          <li>Set default signature behaviour.</li>
         </ol>
       </div>
-      <!-- End instructions -->
 
     </div>
 
@@ -112,16 +94,18 @@ function generateSignature() {
   const data = {
     name: document.getElementById('name').value || "Your Name",
     title: document.getElementById('title').value || "Your Job Title",
-    department: document.getElementById('department').value || "Your Department",
+    department: document.getElementById('department').value.trim(), // optional
     company: "CrowdProperty",
-
-    // UPDATED DEFAULT PHONE NUMBER
     phone: document.getElementById('phone').value || "020 3012 0161",
-
     email: document.getElementById('email').value || "your.email@crowdproperty.com",
     website: "https://CrowdProperty.com",
     linkedin: document.getElementById('linkedin').value.trim(),
   };
+
+  // NEW: Department logic
+  const deptLine = data.department
+    ? `${data.department} | ${data.company}`
+    : `${data.company}`;
 
   const linkStyle = `color: rgb(5, 18, 71) !important; text-decoration: none !important;`;
 
@@ -137,12 +121,12 @@ function generateSignature() {
     <tbody>
       <tr>
         <td>
-          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial; font-size: small; width: 100%;">
+          <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
             <tr>
               <td style="vertical-align: middle; width:400px;">
                 <span style="font-size: 16px; font-weight: 600; color: rgb(5, 18, 71);">${data.name}</span><br />
                 <span style="font-size: 12px; color: rgb(5, 18, 71);">${data.title}</span><br />
-                <span style="font-size: 12px; font-weight: 500; color: rgb(5, 18, 71);">${data.department} | ${data.company}</span>
+                <span style="font-size: 12px; font-weight: 500; color: rgb(5, 18, 71);">${deptLine}</span>
               </td>
               <td width="30"></td>
               <td width="1" style="border-left: 1px solid rgb(211, 211, 211);"></td>
@@ -151,8 +135,7 @@ function generateSignature() {
                 <table cellpadding="0" cellspacing="0" border="0" style="width:400px;">
                   <tr>
                     <td width="30">
-                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png"
-                           width="13" alt="Phone" style="display:block;" />
+                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" width="13" alt="Phone" />
                     </td>
                     <td>
                       <a href="tel:${data.phone}" style="${linkStyle} font-size: 12px;">${data.phone}</a>
@@ -160,8 +143,7 @@ function generateSignature() {
                   </tr>
                   <tr>
                     <td width="30">
-                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png"
-                           width="13" alt="Email" style="display:block;" />
+                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png" width="13" alt="Email" />
                     </td>
                     <td>
                       <a href="mailto:${data.email}" style="${linkStyle} font-size: 12px;">${data.email}</a>
@@ -169,8 +151,7 @@ function generateSignature() {
                   </tr>
                   <tr>
                     <td width="30">
-                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png"
-                           width="13" alt="Website" style="display:block;" />
+                      <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png" width="13" alt="Website" />
                     </td>
                     <td>
                       <a href="${data.website}" style="${linkStyle} font-size: 12px;">
@@ -208,12 +189,7 @@ function generateSignature() {
       <tr>
         <td style="font-size: 12px; padding-top: 1rem; text-align: center; color: #888888;">
           <p style="margin: 0;">
-            This message is intended for the above named only and may be privileged or confidential. If this
-            message has come to you in error, you may not copy, distribute or take action based on it;
-            please notify us immediately by replying to the sender. Any views expressed in this email are
-            those of the original sender, except where the sender specifically states them to be the views
-            of CrowdProperty Ltd. CrowdProperty Limited. Registered Office: Suite 105, Quadrant Court, Calthorpe Road, Edgbaston, Birmingham,
-            England, B15 1TH. Registered in England.
+            This message is intended for the above named only and may be privileged or confidential...
           </p>
         </td>
       </tr>
