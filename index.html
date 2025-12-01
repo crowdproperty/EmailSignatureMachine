@@ -71,42 +71,39 @@
         <h3 style="margin-bottom: 0.25rem;">Outlook Desktop (Windows / Mac)</h3>
         <ol style="padding-left: 1.25rem; margin-top: 0.25rem; margin-bottom: 1rem; font-size: 0.95rem;">
           <li>Open <strong>Outlook</strong>.</li>
-          <li>Click <strong>New Email</strong> to open a new message window.</li>
-          <li>In the new message window, click <strong>Signature</strong> in the toolbar, then choose <strong>Signatures…</strong>.</li>
-          <li>In the <strong>Email Signature</strong> tab, click <strong>New</strong>, give your signature a name (e.g. “CrowdProperty”), and click <strong>OK</strong>.</li>
-          <li>Come back to this page and click <strong>Copy Signature</strong>.</li>
-          <li>Return to Outlook. In the signature editor box, click inside it and <strong>paste</strong> (Ctrl+V / Cmd+V) the signature.</li>
-          <li>Under <strong>Choose default signature</strong>, set:
-            <ul style="margin: 0.25rem 0 0.25rem 1.25rem; padding-left: 0;">
-              <li><strong>E-mail account</strong>: your CrowdProperty email address</li>
-              <li><strong>New messages</strong>: your new signature</li>
-              <li><strong>Replies/forwards</strong>: your new signature (optional)</li>
+          <li>Click <strong>New Email</strong>.</li>
+          <li>In the new email window, click <strong>Signature</strong> → <strong>Signatures…</strong></li>
+          <li>Click <strong>New</strong>, name your signature (e.g. “CrowdProperty”), then click <strong>OK</strong>.</li>
+          <li>Return here and click <strong>Copy Signature</strong>.</li>
+          <li>Paste it into the signature editor (Ctrl+V / Cmd+V).</li>
+          <li>Set it as default for:
+            <ul style="margin: 0.25rem 0 0.25rem 1.25rem;">
+              <li><strong>New messages</strong></li>
+              <li><strong>Replies/forwards</strong> (optional)</li>
             </ul>
           </li>
           <li>Click <strong>OK</strong> to save.</li>
-          <li>Create a new email in Outlook to confirm your signature appears correctly.</li>
         </ol>
 
         <h3 style="margin-bottom: 0.25rem;">Outlook on the Web (New Outlook / Office 365)</h3>
         <ol style="padding-left: 1.25rem; margin-top: 0.25rem; font-size: 0.95rem;">
-          <li>Open <strong>Outlook on the web</strong> in your browser and sign in with your CrowdProperty account.</li>
-          <li>Click the <strong>Settings cog</strong> in the top-right corner.</li>
-          <li>In the left-hand panel, click <strong>Accounts</strong>.</li>
-          <li>Select <strong>Signatures</strong>.</li>
-          <li>Click <strong>New signature</strong> and give it a name (e.g. “CrowdProperty”).</li>
-          <li>Return to this page and click <strong>Copy Signature</strong>.</li>
-          <li>Go back to Outlook on the web and <strong>paste</strong> the signature into the signature editor (Ctrl+V / Cmd+V).</li>
-          <li>Under the default signature options, set:
-            <ul style="margin: 0.25rem 0 0.25rem 1.25rem; padding-left: 0;">
-              <li><strong>For new messages</strong>: choose your new signature</li>
-              <li><strong>For replies/forwards</strong>: choose your new signature (optional)</li>
+          <li>Open <strong>Outlook on the web</strong>.</li>
+          <li>Click the <strong>Settings cog</strong> (top right).</li>
+          <li>Go to <strong>Accounts</strong> in the left sidebar.</li>
+          <li>Click <strong>Signatures</strong>.</li>
+          <li>Create a <strong>New signature</strong>.</li>
+          <li>Return here & click <strong>Copy Signature</strong>.</li>
+          <li>Paste the signature into Outlook’s signature box.</li>
+          <li>Set your defaults for:
+            <ul style="margin: 0.25rem 0 0.25rem 1.25rem;">
+              <li><strong>New messages</strong></li>
+              <li><strong>Replies/forwards</strong> (optional)</li>
             </ul>
           </li>
           <li>Click <strong>Save</strong>.</li>
-          <li>Compose a new email in your browser to confirm the signature is applied.</li>
         </ol>
       </div>
-      <!-- End instructions section -->
+      <!-- End instructions -->
 
     </div>
 
@@ -117,7 +114,10 @@ function generateSignature() {
     title: document.getElementById('title').value || "Your Job Title",
     department: document.getElementById('department').value || "Your Department",
     company: "CrowdProperty",
-    phone: document.getElementById('phone').value || "Your Phone Number",
+
+    // UPDATED DEFAULT PHONE NUMBER
+    phone: document.getElementById('phone').value || "020 3012 0161",
+
     email: document.getElementById('email').value || "your.email@crowdproperty.com",
     website: "https://CrowdProperty.com",
     linkedin: document.getElementById('linkedin').value.trim(),
@@ -212,7 +212,8 @@ function generateSignature() {
             message has come to you in error, you may not copy, distribute or take action based on it;
             please notify us immediately by replying to the sender. Any views expressed in this email are
             those of the original sender, except where the sender specifically states them to be the views
-            of CrowdProperty Ltd. CrowdProperty Limited. Registered Office: Suite 105, Quadrant Court, Calthorpe Road, Edgbaston, Birmingham, England, B15 1TH. Registered in England.
+            of CrowdProperty Ltd. CrowdProperty Limited. Registered Office: Suite 105, Quadrant Court, Calthorpe Road, Edgbaston, Birmingham,
+            England, B15 1TH. Registered in England.
           </p>
         </td>
       </tr>
